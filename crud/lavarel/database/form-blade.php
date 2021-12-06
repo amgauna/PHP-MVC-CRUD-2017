@@ -95,4 +95,7 @@
     {!! Form::close() !!}
  
 </div>
+
+{{ $customers->links() }}
+
 @endsection
