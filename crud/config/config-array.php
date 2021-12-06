@@ -4,7 +4,11 @@ return (object) array(
     'host' => 'localhost',
     'username' => 'root',
     'pass' => 'password',
-    'database' => 'db'
+    'database' => 'db',
+    'app_info' => array(
+        'appName'=>"App Name",
+        'appURL'=> "http://yourURL/#/"
+    )
 );
 
 ?>
