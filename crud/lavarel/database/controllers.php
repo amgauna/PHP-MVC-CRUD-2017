@@ -41,3 +41,34 @@ public function store(Request $request)
     }
 }
 
+// Se você fez tudo certo até aí, quando preencher o formulário, após salvar 
+// a página será redirecionada para a grade que lista os registros, então você
+// verá um registro criado!
+// Mas se você clicar no botão editar ou excluir, imediatamente é direcionado
+// a uma página em branco.
+// Isso porque os métodos não foram implementados, então não estão retornando nada.
+// Mas vamos começar por alterar o controller, permitindo a atualização de registros.
+// Vamos implementar os dois métodos edit e update.
+// Primeiro o edit, precisa deste código:
+
+public function edit($id)
+{
+    $customer = Customer::findOrFail($id);
+ 
+    if ($customer) {
+        return view('customers.form', compact('customer'));
+    } else {
+        return redirect()->back();
+    }
+}
+
+// Mas falta salvar a atualização. O método update, fará isso utilizando apenas esse código:
+
+public function update(Request $request, $id)
+{
+    $customer = Customer::where('id', $id)->update($request->except('_token', '_method'));
+ 
+    if ($customer) {
+        return redirect()->route('customers.index');
+    }
+}
