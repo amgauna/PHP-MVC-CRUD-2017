@@ -72,3 +72,19 @@ public function update(Request $request, $id)
         return redirect()->route('customers.index');
     }
 }
+
+
+// Veja só! Nosso CRUD já está listando, criando e atualizando.
+// Falta só excluir! Então precisamos alterar agora apenas uma 
+// action no controller: destroy.
+// O código ficará assim:
+
+public function destroy($id)
+{
+    $customer = Customer::where('id', $id)->delete();
+       
+    if ($customer) {
+        return redirect()->route('customers.index');
+    }
+}
+
