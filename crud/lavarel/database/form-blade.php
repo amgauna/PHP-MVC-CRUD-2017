@@ -3,8 +3,33 @@
  
 @section('content')
 <h1>Registro</h1>
+
 <hr>
+
+{!! Form::open(['method' => get, 'route' => 'customers.index, 'class' => 'form-horizontal']) !!}
  
+    <div class="form-row form-group">
+ 
+ 
+        {!! Form::label('search', 'Procurar por', ['class' => 'col-sm-2 col-form-label text-right']) !!}
+ 
+ 
+        <div class="col-sm-8">
+ 
+      {!! Form::text('search', isset($search) ? $search : null, ['class' => 'form-control']) !!}
+ 
+        </div>
+        <div class="col-sm-2">
+ 
+      {!! Form::submit('procurar', ['class'=>'btn btn-primary']) !!}
+ 
+        </div>
+ 
+    </div>
+ 
+{!! Form::close() !!}
+
+
 <div class="container">
  
  
