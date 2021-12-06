@@ -6,17 +6,14 @@
 
 ### crud pastas
 
-pasta 
 ### /config/
-= Será armazenado toda a lógica de configuração da aplicação.
+= pasta onde será armazenado toda a lógica de configuração da aplicação.
 
-pasta
 ### /db/
-= Responsável por armazenar o banco de dados (SQLite) e o dump que será gerado.
+= pasta responsável por armazenar o banco de dados (SQLite) e o dump que será gerado.
 
-pasta 
 ### /src/
-= Responsável por conter toda a lógica da nossa aplicação.
+= pasta responsável por conter toda a lógica da nossa aplicação.
 
 ### composer.json
 = arquivo com as configurações do composer para o projeto.
