@@ -21,3 +21,23 @@ public function index()
     $customers = Customer::all();
     return $customers;
 }
+
+public function create()
+{
+    return view('customers.form');
+}
+
+// Agora você deve estar ansioso para ver como ficou  
+// o formulário quando clicar em novo! Mas sugiro já 
+// adicionar o método store para fazer todo o ciclo. 
+// Adicione só assim por enquanto:
+
+public function store(Request $request)
+{
+    $customer = Customer::create($request->all());
+       
+    if($customer) {
+        return redirect()->route('customers.index');
+    }
+}
+
