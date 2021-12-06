@@ -11,9 +11,27 @@ class CustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
  
+   public function rules()
+   {
+    return [
+       'first_name' => 'required|max:45',
+       'last_name' => 'required|max:45',
+    ];
+   }
+  
+  public function messages()
+ {
+    return [
+       'first_name.required' => 'O campo nome é requerido',
+       'last_name.required' => 'O campo sobrenome é requerido',
+       'first_name.max' => 'O tamanho do nome inserido no campo não pode utltrapassar 45 caracteres',
+       'last_name.max' => 'O tamanho do nome inserido no campo não pode utltrapassar 45 caracteres',
+    ];
+  }
+
     /**
      * Get the validation rules that apply to the request.
      *
