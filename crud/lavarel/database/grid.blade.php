@@ -43,4 +43,7 @@
         </tbody>
     </table>
 </div>
+
+@include('layout.messages')
+
 @endsection
