@@ -1,3 +1,8 @@
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\CustomerRequest;
+
+
 // Vamos partir para criação das actions do controller, 
 // então abra o arquivo CustomersController.php que 
 // está no caminho app/Http/Controller.
@@ -32,14 +37,19 @@ public function create()
 // adicionar o método store para fazer todo o ciclo. 
 // Adicione só assim por enquanto:
 
-public function store(Request $request)
-{
+public function store(CustomerRequest $request)
+{ 
     $customer = Customer::create($request->all());
-       
-    if($customer) {
-        return redirect()->route('customers.index');
+ 
+    if ($customer) {
+ 
+  Session::flash('success', "Registro #{$customer->id}  salvo com êxito");
+ 
+  return redirect()->route('customers.index');
     }
+    return redirect()->back()->withErrors(['error', "Registo não foi salvo."]);
 }
+
 
 // Se você fez tudo certo até aí, quando preencher o formulário, após salvar 
 // a página será redirecionada para a grade que lista os registros, então você
@@ -64,15 +74,18 @@ public function edit($id)
 
 // Mas falta salvar a atualização. O método update, fará isso utilizando apenas esse código:
 
-public function update(Request $request, $id)
+public function update(CustomerRequest $request, $id)
 {
     $customer = Customer::where('id', $id)->update($request->except('_token', '_method'));
  
     if ($customer) {
-        return redirect()->route('customers.index');
+   
+  Session::flash('success', "Registro #{$id} atualizado com êxito");
+   
+  return redirect()->route('customers.index');
     }
+    return redirect()->back()->withErrors(['error', "Registo #{$id} não foi encontrado"]);
 }
-
 
 // Veja só! Nosso CRUD já está listando, criando e atualizando.
 // Falta só excluir! Então precisamos alterar agora apenas uma 
@@ -82,9 +95,14 @@ public function update(Request $request, $id)
 public function destroy($id)
 {
     $customer = Customer::where('id', $id)->delete();
-       
+ 
     if ($customer) {
-        return redirect()->route('customers.index');
-    }
+   
+         Session::flash('success', "Registro #{$id} excluído com êxito");
+   
+         return redirect()->route('customers.index');
+    } 
+    return redirect()->back()->withErrors(['error', "Registo #{$id} não pode ser excluído"]);
 }
+
 
