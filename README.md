@@ -4,7 +4,7 @@
 
 ### Aprenda a construir um CRUD simples, fácil e rápido
 
-### crud pastas
+### CRUD pastas:
 
 ### /config/
 = pasta onde será armazenado toda a lógica de configuração da aplicação.
