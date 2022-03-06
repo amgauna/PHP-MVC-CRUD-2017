@@ -32,7 +32,7 @@ $stmt->execute();
  
     <body>
          
-        <h1>Sistema de Cadastro - ULTIMATE PHP</h1>
+        <h1>Sistema de Cadastro</h1>
          
         <p><a href="form-add.php">Adicionar Usuário</a></p>
  
