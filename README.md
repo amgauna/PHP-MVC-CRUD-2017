@@ -1,4 +1,4 @@
-# PHP / Lavarel / CRUD / MVC / Sistema de Cadastro
+# PHP / CRUD / MVC / Sistema de Cadastro
 
 ## Exemplos de Código PHP que eu estou estudando e testando
 
