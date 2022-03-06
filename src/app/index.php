@@ -27,7 +27,7 @@ $stmt->execute();
     <head>
         <meta charset="utf-8">
  
-        <title>Sistema de Cadastro - ULTIMATE PHP</title>
+        <title>Sistema de Cadastro </title>
     </head>
  
     <body>
